@@ -14,7 +14,7 @@ mod utils;
 include!(concat!(env!("OUT_DIR"), "/time.rs"));
 
 pub const ALARM_HOUR: u8 = 12;
-pub const ALARM_MINUTE: u8 = 37;
+pub const ALARM_MINUTE: u8 = 00;
 const BEEP_COUNT: u8 = 10;
 
 fn setup_screen(
@@ -95,6 +95,7 @@ fn main() -> ! {
             }
             led.set_low();
             buzzer.set_low();
+            seconds = BEEP_COUNT * 2;
         }
 
         let mut buf = [0u8; 64];
